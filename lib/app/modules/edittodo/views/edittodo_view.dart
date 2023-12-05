@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:to_do_list/app/modules/button/outlined_button.dart';
 
+import '../../button/regular_button.dart';
 import '../controllers/edittodo_controller.dart';
 
 class EdittodoView extends GetView<EdittodoController> {
@@ -28,12 +30,24 @@ class EdittodoView extends GetView<EdittodoController> {
                 labelText: 'desc',
               ),
             ),
-          MaterialButton(
-            onPressed: () {
+            MyOutlinedButton(
+              label: 'Back', 
+            onPressedCallBack: () {
+              Get.back();
+            }, 
+            textColor: Colors.blue, 
+            borderColor: Colors.blue,
+
+            ),
+          RegularButton(
+            label: 'Save', 
+            onPressedCallBack: () {  
               editController.updateTodo();
               Get.back();
-            }    
-            )
+            }, 
+            backgroundColor: Colors.blue, 
+            textColor: Colors.white,
+          ),
         ],
       )
     );

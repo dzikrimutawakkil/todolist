@@ -30,8 +30,8 @@ class HomeView extends GetView<HomeController> {
                 child: Container(
                   child: Column(
                     children: [
-                      Text(todoController.toDoList[index].judul),
-                      Text(todoController.toDoList[index].deskripsi),
+                      Text(todoController.toDoList[index].judul, style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
+                      Text(todoController.toDoList[index].deskripsi, style: TextStyle(fontSize: 10, fontWeight: FontWeight.w400),),
                     ],
                   ),
                 ),
@@ -39,8 +39,12 @@ class HomeView extends GetView<HomeController> {
             }
           );
           }),
-          FloatingActionButton(
-            onPressed: () => Get.toNamed(Routes.ADD_TODO)
+          Align(
+            alignment: Alignment.bottomRight,
+            child: FloatingActionButton(
+              child: Icon(Icons.add),
+              onPressed: () => Get.toNamed(Routes.ADD_TODO)
+            ),
           )
         ],
       )
